@@ -1,0 +1,161 @@
+<!-- Name: Samir Mohamed Samir | University ID: 225111410 | Field Training I (FT-WEB-101) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5efe6" id="themeMeta">
+  <meta name="description" content="Personal Profile of Samir Mohamed Samir - Computer Science student at New Mansoura University.">
+  <title>Samir Mohamed Samir | Personal Profile</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Cairo & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Immediate Theme Initializer (prevents flash of incorrect theme) -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('sms_theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Floating sparks/reaction layer -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Theme Mode Toggle (Fixed Top-Right) -->
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle Night Mode" aria-pressed="false">
+    <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
+    <span class="theme-text" id="themeText">Dark Mode</span>
+  </button>
+
+  <!-- Central App Container -->
+  <main class="app">
+
+    <!-- Hero Header -->
+    <header class="hero" id="home">
+      <div class="frame">
+        <img src="images/profile.jpg" alt="Profile photo of Samir Mohamed Samir">
+      </div>
+      <h1>Samir Mohamed<br>Samir</h1>
+      <p class="ticket">Student ID <strong>225111410</strong></p>
+      <p class="role">Computer Science · New Mansoura University</p>
+      <button class="action-btn" id="cheerBtn" type="button" aria-label="Send cheers and support">
+        ⚡ Cheer <span id="cheerCount">0</span>
+      </button>
+    </header>
+
+    <!-- Section: About Me -->
+    <section id="about" class="card">
+      <h2>★ About Me</h2>
+      <p>
+        Hi! I am a Computer Science student at <strong>New Mansoura University</strong> (Faculty of Computer Science &amp; Engineering).
+        I am passionate about software engineering, programming, and building clean web applications in <strong>Field Training I (FT-WEB-101)</strong>.
+      </p>
+      <p>
+        Alongside tech, I work as an <strong>Online Fitness Coach</strong>, helping individuals build discipline, strength, and healthier routines.
+        My everyday life is a balance between coding, the gym, football, and continuous reading.
+      </p>
+      <div class="quick-tags">
+        <span class="pill">💻 Computer Science</span>
+        <span class="pill">🏋️ Online Coaching</span>
+        <span class="pill">⚽ Football</span>
+        <span class="pill">📚 Book Enthusiast</span>
+      </div>
+    </section>
+
+    <!-- Section: Skills (Interactive Star Ratings) -->
+    <section id="skills" class="card">
+      <h2>★ Skills &amp; Ratings</h2>
+      <p class="tip">Tap the stars to interactively test or adjust each skill rating.</p>
+      <div id="skillList" class="skill-list"></div>
+    </section>
+
+    <!-- Section: Education & Training -->
+    <section id="education" class="card">
+      <h2>★ Education &amp; Training</h2>
+      <ul class="list">
+        <li>
+          <strong>Bachelor of Computer Science &amp; Engineering</strong>
+          <span>Faculty of Computer Science &amp; Engineering · New Mansoura University (In Progress)</span>
+        </li>
+        <li>
+          <strong>Field Training I (FT-WEB-101)</strong>
+          <span>Web Development Fundamentals · Task 1: Personal Profile Web Page</span>
+        </li>
+        <li>
+          <strong>Online Coaching &amp; Athletic Conditioning</strong>
+          <span>Remote training plans, progressive overload guidance, and nutrition coaching</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section: Projects (Interactive Slider) -->
+    <section id="projects" class="card">
+      <h2>★ Projects &amp; Work</h2>
+      <div class="slider" tabindex="0" role="region" aria-label="Project showcase carousel">
+        <button class="nav" id="prev" type="button" aria-label="Previous project">‹</button>
+        <div class="slide" id="slide" aria-live="polite"></div>
+        <button class="nav" id="next" type="button" aria-label="Next project">›</button>
+      </div>
+      <div class="dots" id="dots" role="tablist" aria-label="Project navigation dots"></div>
+    </section>
+
+    <!-- Section: Contact Form with Validation -->
+    <section id="contact" class="card letter">
+      <h2>★ Get in Touch</h2>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input id="name" type="text" placeholder="e.g. Ahmed Ali" autocomplete="name" required>
+          <small class="err" id="nameErr" role="alert"></small>
+        </div>
+        <div class="field">
+          <label for="email">Your Email</label>
+          <input id="email" type="email" placeholder="e.g. ahmed@example.com" autocomplete="email" required>
+          <small class="err" id="emailErr" role="alert"></small>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Write your message or inquiry here..." required></textarea>
+          <small class="err" id="msgErr" role="alert"></small>
+        </div>
+        <button class="action-btn" type="submit" id="submitBtn">Send Message 🚀</button>
+        <p id="formMsg" class="form-feedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      Samir Mohamed Samir · ID 225111410<br>
+      FT-WEB-101 · Task 1 · <span id="year"></span>
+    </footer>
+
+  </main>
+
+  <!-- Floating Bottom Navigation Bar (Scroll Spy) -->
+  <nav class="tabbar" aria-label="Page navigation">
+    <a href="#home" class="on">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Study</a>
+    <a href="#projects">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
